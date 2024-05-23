@@ -19,10 +19,10 @@ Calcula correctamente todos los cocientes, medicocientes y residuos de un circui
 - "Diputados R" no se asignan automáticamente. Se deben asignar manualmente en las hojas de datos.
 - "Diputados R" y "Votos de Coalición" son demasiado complicados.
 - El ID del candidato es su nombre en la papeleta. Usábamos esto contra el TER del Tribunal Electoral, quienes utilizan el "nombre del candidato" como identificador; y se han rehusado a utilizar la cédula o algún ID individual. Ni siquiera publican los "nombres legales" de las personas. Esto puede causar problemas si dos candidatos tienen el mismo nombre.
-- Bug: Si un candidato es nominado por dos coaliciones distintas, ambas con "Diputados R", el sistema puede contar esos votos extra a una coalición incorrecta. Ejemplo: Junior Herrera fue nominado en Panamá Oeste por PRD, Molinera y RM. Creo que aparece como "R" en Molirena. El sistema puede que le sume los vots a RM, cuando debería sumarle a PRD por ser coalición.
+- Bug: Si un candidato es nominado por dos coaliciones distintas, ambas con "Diputados R", el sistema puede contar esos votos extra a una coalición incorrecta. Ejemplo: Junior Herrera fue nominado en Panamá Oeste por PRD, Molinera y RM. Creo que aparece como "R" en Molirena. El sistema puede que le sume los votos a RM, cuando debería sumarle a PRD por ser coalición.
 
 ## Gracias a
 
-Tech Squad del **Movimiento Otro Camino**. Seguimos!
+Tech Squad del **Movimiento Otro Camino**. ¡Seguimos!
 
 ![MOCA](docs/otrocamino-logo.svg)
