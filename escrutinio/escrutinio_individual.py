@@ -17,7 +17,7 @@ def escrutinio_individual(escrutinio: pd.DataFrame):
 
   # Separar los votos "R" para sumarlos después, agrupados por candidato y coalición.
   # Agrupar solo por nombre mezclaría los votos de dos candidatos homónimos que
-  # pertenecen a coaliciones distintas (ver "Known bug" en el README).
+  # pertenecen a coaliciones distintas.
   votos_r = escrutinio[escrutinio['Es R']].copy()
   votos_r['Coalicion'] = votos_r['Partido'].map(coalicion_de_partido)
   votos_de_coalicion = votos_r.groupby(['Nombre', 'Coalicion'])['Votos'].sum().to_dict()
