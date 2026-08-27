@@ -41,7 +41,9 @@ The computation is a strict three-stage pipeline over two input tables, wired to
    non-"R" candidate not already selected.
 2. **`escrutinio/escrutinio_individual.py`** — `escrutinio_individual(escrutinio)` takes the second
    escrutinio and folds "R" ("Diputados R") rows into the coalition partner they ran with, producing one
-   `VotoIndividual` per real candidate with `is_coalition` set when R-votes were merged in.
+   `VotoIndividual` per real candidate with `is_coalition` set when R-votes were merged in. R votes are
+   matched to a candidate by name *and* coalition (via `constants/coaliciones.py`), so two same-named
+   candidates running in different coalitions don't have their R votes mixed up.
 3. **`escrutinio/residuos.py`** — `residuos(votos_individuales, ya_electos, total_curules)` fills any
    remaining seats by largest remainder: highest individual vote count wins, skipping candidates already
    elected and parties that already won a residuo seat, until `total_curules` is reached.
@@ -72,8 +74,7 @@ the vote data.
 - Coalition vote handling ("Votos de Coalición") and "R" seat assignment are manual/partially modeled;
   "Diputados R" are not assigned automatically and must be marked in the source data by hand.
 - Candidate identity is by ballot name only, since the Electoral Tribunal doesn't publish a stable
-  candidate ID — two same-named candidates would collide.
-- Known bug: a candidate nominated by two different coalitions (both with "R" seats) can have their R
-  votes attributed to the wrong coalition.
+  candidate ID — two same-named candidates in the *same* coalition would still collide (R votes are
+  disambiguated by coalition, not by a unique candidate ID).
 - The formula is designed for the 2024 election law; 2019 data is used for testing but predates the
   "Votos de Coalición"/"Diputados R" concepts.
