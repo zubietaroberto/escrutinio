@@ -1,0 +1,3 @@
+[FORMAT]
+# This codebase indents with 2 spaces, not the PEP 8 default of 4.
+indent-string='  '
