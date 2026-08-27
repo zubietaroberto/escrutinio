@@ -1,6 +1,10 @@
 from escrutinio.types import Resultado, TipoDeSeleccion, VotoIndividual
 
-def residuos(votos_individuales: list[VotoIndividual], ya_electos: list[Resultado], total_curules: int):
+def residuos(
+  votos_individuales: list[VotoIndividual],
+  ya_electos: list[Resultado],
+  total_curules: int
+) -> list[Resultado]:
   """Dado un listado de votos individuales, selecciona los diputados por residuo"""
   result: list[Resultado] = []
   partidos_con_residuo: set[int] = set()
@@ -10,7 +14,7 @@ def residuos(votos_individuales: list[VotoIndividual], ya_electos: list[Resultad
 
   for voto in votos_individuales:
     # Si ya se han seleccionado todos los diputados, se termina
-    if (len(result) + len(ya_electos) >= total_curules):
+    if len(result) + len(ya_electos) >= total_curules:
       break
 
     # Si el candidato está ya seleccionado, no se considera

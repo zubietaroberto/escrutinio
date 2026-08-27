@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from enum import Enum
 
 class TipoDeSeleccion(Enum):
+  """Representa el tipo de selección de un candidato"""
   COCIENTE = 1
   MEDIOCOCIENTE = 2
   RESIDUO = 3
@@ -14,6 +15,7 @@ class NominasAsignadas:
 
 @dataclass
 class Resultado:
+  """Representa el resultado de un candidato electo"""
   nombre: str
   partido: int
   votos: int
@@ -21,6 +23,7 @@ class Resultado:
 
 @dataclass
 class VotoIndividual:
+  """Representa el total individual de un candidato"""
   partido: int
   nombre: str
   votos: int

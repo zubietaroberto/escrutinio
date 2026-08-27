@@ -33,7 +33,8 @@ def nominas_con_curul(primer_escrutinio: pd.DataFrame, curules: int):
   for _, fila in valores.iterrows():
     # No considerar partidos que ya tienen curul
     if any(nomina.partido == fila["Partido"] for nomina in resultado):
-      print(f"Partido {nombre_del_partido(fila['Partido'])} ya tiene curul. No compite por medio cociente.")
+      nombre = nombre_del_partido(fila['Partido'])
+      print(f"Partido {nombre} ya tiene curul. No compite por medio cociente.")
       continue
 
     if fila["curules_por_mediocociente"] >= 1:
@@ -61,5 +62,10 @@ def seleccion_de_curul(curules_asignadas: list[NominasAsignadas], segundo_escrut
     listado = listado.sort_values(by=['Votos'], ascending=False)
     selected = listado.iloc[0]
 
-    result.append(Resultado(selected['Nombre'], curul_asignada.partido, selected['Votos'], curul_asignada.tipo))
+    result.append(Resultado(
+      selected['Nombre'],
+      curul_asignada.partido,
+      selected['Votos'],
+      curul_asignada.tipo
+    ))
   return result
